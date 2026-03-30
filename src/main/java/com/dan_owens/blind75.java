@@ -29,7 +29,7 @@ public class blind75 implements Runnable{
             System.exit(1);
         }
         try {
-        System.out.println(problem.run(problemName));
+        System.out.println(problem.run(input));
         } catch (Exception e) {
             System.err.println(e.getMessage());
             System.exit(1);
