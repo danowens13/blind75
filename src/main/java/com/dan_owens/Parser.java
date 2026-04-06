@@ -30,6 +30,22 @@ public class Parser {
         }
     }
 
+    public static String[] parseStringArray(String input) {
+        input = nullCheckAndStrip(input);
+        String content = input.replaceFirst("^\\[", "")
+                .replaceFirst("]$", "")
+                .strip();
+
+        try {
+            return Arrays.stream(content.split(","))
+                    .map(String::trim)
+                    .toArray(String[]::new);
+
+        } catch (NumberFormatException e) {
+            throw new InputMismatchException("Invalid String value: " + e.getMessage());
+        }
+    }
+
     public static String parseString(String input) throws InputMismatchException {
         return nullCheckAndStrip(input);
     }
