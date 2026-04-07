@@ -39,6 +39,7 @@ public class Parser {
         try {
             return Arrays.stream(content.split(","))
                     .map(String::trim)
+                    .map(s -> s.replace("\"", ""))
                     .toArray(String[]::new);
 
         } catch (NumberFormatException e) {
